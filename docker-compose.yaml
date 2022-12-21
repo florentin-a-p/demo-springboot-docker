@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mysql_container:
+    image: mysql
+    ports:
+    - 3306:3306
+    environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_DATABASE=demo_docker
+  phpmyadmin_container:
+    image: phpmyadmin
+    ports:
+    - 9080:80
+    environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - PMA_HOST=mysql_container
